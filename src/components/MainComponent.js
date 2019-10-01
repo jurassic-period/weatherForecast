@@ -1,8 +1,8 @@
 import React from "react";
 import Form from "./Form";
 import WeatherInfo from "./WeatherInfo";
-
-const API_KEY = "457f40520ab80a953c8f425fc21de253";
+import { connect } from "react-redux";
+import { toGetWeatherData, toGetWeatherDataFirstTime } from "../redux/actions";
 
 class MainComponent extends React.Component {
   constructor(props) {
@@ -13,14 +13,25 @@ class MainComponent extends React.Component {
     };
   }
 
-  async toDownloadData() {
-      const api_url = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Kiev,ua&appid=${API_KEY}&units=metric`);
-      const data = await api_url.json();
-      console.log(data);
+  componentDidMount() {
+    console.log("props: ", this.props);
+    let lat;
+    let lon;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      const {
+        coords: { latitude, longitude }
+      } = position;
+      lat = latitude;
+      lon = longitude;
+    });
+    console.log('coords after getCurrentPosition', lat, lon)
+
+    // console.log('currentCoords',currentCoords);
+    this.props.weatherInfo(55.7558, 37.6173);
+
   }
 
   render() {
-      this.toDownloadData();
     return (
       <div>
         <h1>Weather Forecast for your city</h1>
@@ -31,4 +42,13 @@ class MainComponent extends React.Component {
   }
 }
 
-export default MainComponent;
+const mapDispatchToProps = dispatch => {
+  return {
+    weatherInfo: (lat, lon) => dispatch(toGetWeatherDataFirstTime(lat, lon))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(MainComponent);
