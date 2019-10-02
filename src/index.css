@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Farro', sans-serif;;
+  font-family: 'Oswald', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #0f8a9a;
@@ -11,4 +11,48 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+h1 {
+  margin-bottom: 30px;
+}
+.input-city {
+  border-radius: 4px;
+  background-color: #d8fbff;
+  border-color: #607D8B;
+  text-align: center;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+.input-city:focus {
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+
+.button-city {
+  border-radius: 4px;
+  color: azure;
+  background-color: #607D8B;
+}
+.button-city:focus {
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+.weather-card {
+  margin: 0 5px 0 5px;
+}
+.weather {
+  position: relative;
+}
+.temp:before {
+  content: '';
+  background-color: #9c27b0;
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  border-radius: 15px;
+  left: 114px;
+  top: 55px;
+}
+.weather-p {
+  text-align: left;
 }

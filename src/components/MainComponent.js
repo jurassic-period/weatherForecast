@@ -14,29 +14,25 @@ class MainComponent extends React.Component {
   }
 
   componentDidMount() {
-    console.log("props: ", this.props);
-    let lat;
-    let lon;
+    console.log("this.props: ", this.props);
+    const toRunWeatherInfo = this.props.weatherInfo;
     navigator.geolocation.getCurrentPosition(function(position) {
       const {
         coords: { latitude, longitude }
       } = position;
-      lat = latitude;
-      lon = longitude;
+      toRunWeatherInfo(latitude, longitude);
     });
-    console.log('coords after getCurrentPosition', lat, lon)
-
-    // console.log('currentCoords',currentCoords);
-    this.props.weatherInfo(55.7558, 37.6173);
-
   }
 
   render() {
     return (
-      <div>
-        <h1>Weather Forecast for your city</h1>
+      <div className="row flex-column">
+        <h1>Weather Forecast</h1>
         <Form />
-        <WeatherInfo />
+        <div className="d-flex">
+          <WeatherInfo />
+          <WeatherInfo />
+        </div>
       </div>
     );
   }
