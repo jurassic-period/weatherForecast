@@ -1,17 +1,47 @@
 import React from "react";
 import { connect } from "react-redux";
+import { format } from 'date-fns'; // from https://date-fns.org
 
 class WeatherInfo extends React.Component {
   render() {
     console.log("propsami weather data ", this.props.weatherData);
     return (
-      <div className="col-4 weather-card">
+      <div className="weather-card col-12">
         {!this.props.weatherData[0]
           ? null
-          : this.props.weatherData.map(obj => <div key={obj.id} className="weather-elem">
+          : this.props.weatherData.map(obj => <div key={obj.id} className="weather-elem col-4">
               <h2>Weather in {obj.name}, {obj.sys.country}</h2>
               <h3 className="temp">{obj.main.temp}°C</h3>
               <p className="weather-p">{obj.weather[0].description[0].toUpperCase() + obj.weather[0].description.slice(1)}</p>
+              <p className="weather-p">{format(obj.dt * 1000,'HH:mm MMM d')}</p>
+              <table className="weather-table">
+                <tbody>
+                  <tr>
+                    <td className="weather-table__td">Wind</td>
+                    <td className="weather-table__td">{obj.wind.speed}m/s</td>
+                  </tr>
+                  <tr>
+                    <td className="weather-table__td">Tempreture (max/min)</td>
+                    <td className="weather-table__td">{obj.main.temp_max}°C / {obj.main.temp_min}°C</td>
+                  </tr>
+                  <tr>
+                    <td className="weather-table__td">Pressure</td>
+                    <td className="weather-table__td">{obj.main.pressure} hpa</td>
+                  </tr>
+                  <tr>
+                    <td className="weather-table__td">Humidity</td>
+                    <td className="weather-table__td">{obj.main.humidity} %</td>
+                  </tr>
+                  <tr>
+                    <td className="weather-table__td">Sunrise</td>
+                    <td className="weather-table__td">{format(obj.sys.sunrise * 1000, 'HH:mm')}</td>
+                  </tr>
+                  <tr>
+                    <td className="weather-table__td">Sunset</td>
+                    <td className="weather-table__td">{format(obj.sys.sunset * 1000, 'HH:mm')}</td>
+                  </tr>
+                </tbody>
+              </table>
           </div>)}
       </div>
     );

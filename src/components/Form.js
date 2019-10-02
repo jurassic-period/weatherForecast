@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { toGetWeatherData } from "../redux/actions";
 
 class Form extends React.Component {
   constructor(props) {
@@ -21,7 +23,7 @@ class Form extends React.Component {
           <button
             className="button-city"
             type="button"
-            onClick={() => console.log(this.state.inputValue)}
+            onClick={() => this.props.sendCity(this.state.inputValue)}
           >
             To get weather
           </button>
@@ -31,4 +33,14 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+const mapDispatchToProps = dispatch => {
+  return {
+    sendCity: (name) => dispatch(toGetWeatherData(name))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Form);
+

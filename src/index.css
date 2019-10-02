@@ -37,8 +37,12 @@ h1 {
   outline: 0;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
 }
+.cards-wrapper {
+  margin-top: 35px;
+}
 .weather-card {
-  margin: 0 5px 0 5px;
+  padding: 0 10px 0 10px;
+  margin-bottom: 35px;
 }
 .weather {
   position: relative;
@@ -55,4 +59,16 @@ h1 {
 }
 .weather-p {
   text-align: left;
+}
+.weather-table {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  width: 100%;
+  color: #505050;
+}
+.weather-table__td {
+  text-align: left;
+  padding: 5px;
+  border: 1px solid #ddd;
 }

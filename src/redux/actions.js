@@ -9,11 +9,11 @@ export function toGetWeatherDataFirstTime(latitude, longitude) {
     };
   }
 
-// export function toGetWeatherData() {
-//     return async dispatch => {
-//         const api_url = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Kiev&appid=${API_KEY}&units=metric`);
-//         const data = await api_url.json();
+export function toGetWeatherData(name) {
+    return async dispatch => {
+        const api_url = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${API_KEY}&units=metric`);
+        const data = await api_url.json();
 
-//       dispatch({ type: "FULL_DATA_WEATHER", data });
-// };
-// }
+      dispatch({ type: "FULL_DATA_WEATHER", data });
+};
+}

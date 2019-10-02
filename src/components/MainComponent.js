@@ -2,7 +2,7 @@ import React from "react";
 import Form from "./Form";
 import WeatherInfo from "./WeatherInfo";
 import { connect } from "react-redux";
-import { toGetWeatherData, toGetWeatherDataFirstTime } from "../redux/actions";
+import { toGetWeatherDataFirstTime } from "../redux/actions";
 
 class MainComponent extends React.Component {
   constructor(props) {
@@ -26,11 +26,10 @@ class MainComponent extends React.Component {
 
   render() {
     return (
-      <div className="row flex-column">
+      <div className="flex-column">
         <h1>Weather Forecast</h1>
         <Form />
-        <div className="d-flex">
-          <WeatherInfo />
+        <div className="d-flex row cards-wrapper">
           <WeatherInfo />
         </div>
       </div>
