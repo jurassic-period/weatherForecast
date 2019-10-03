@@ -27,6 +27,7 @@ class MainComponent extends React.Component {
       <div className="">
         <h1>Weather Forecast</h1>
         <Form />
+        <Error />
         <div className="container">
           <WeatherInfo />
         </div>

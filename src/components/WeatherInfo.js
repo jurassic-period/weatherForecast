@@ -11,7 +11,7 @@ class WeatherInfo extends React.Component {
       <div className="weather-card row d-flex">
         {!this.props.weatherData[0]
           ? null
-          : this.props.weatherData.map(obj => obj.cod === '404'? <Error key="error" /> : <div key={obj.id} className="weather-elem col-4">
+          : this.props.weatherData.map(obj => obj.cod === '404'? null : <div key={obj.id} className="weather-elem col-4">
               <h2>Weather in {obj.name}, {obj.sys.country}</h2>
               <h3 className="temp">{obj.main.temp}°C</h3>
               <p className="weather-p">{obj.weather[0].description[0].toUpperCase() + obj.weather[0].description.slice(1)}</p>
