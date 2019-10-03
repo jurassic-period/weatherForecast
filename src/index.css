@@ -37,14 +37,14 @@ h1 {
   outline: 0;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
 }
-.cards-wrapper {
+.weather-elem{
   margin-top: 35px;
 }
 .weather-card {
   padding: 0 10px 0 10px;
   margin-bottom: 35px;
 }
-.weather {
+.temp {
   position: relative;
 }
 .temp:before {
@@ -54,8 +54,8 @@ h1 {
   height: 22px;
   width: 22px;
   border-radius: 15px;
-  left: 114px;
-  top: 55px;
+  left: 96px;
+  top: 10px;
 }
 .weather-p {
   text-align: left;
@@ -71,4 +71,18 @@ h1 {
   text-align: left;
   padding: 5px;
   border: 1px solid #ddd;
+}
+.fa {
+  position: absolute;
+  right: 20px;
+  top: 6px;
+  color: red;
+  font-size: 20px;
+}
+.fa:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: all 0.1s ease-out;
 }

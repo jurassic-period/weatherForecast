@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { format } from 'date-fns'; // from https://date-fns.org
+import { toDelWidget } from '../redux/actions';
 
 class WeatherInfo extends React.Component {
   render() {
     console.log("propsami weather data ", this.props.weatherData);
     return (
-      <div className="weather-card col-12">
+      <div className="weather-card row d-flex">
         {!this.props.weatherData[0]
           ? null
           : this.props.weatherData.map(obj => <div key={obj.id} className="weather-elem col-4">
@@ -14,6 +15,7 @@ class WeatherInfo extends React.Component {
               <h3 className="temp">{obj.main.temp}°C</h3>
               <p className="weather-p">{obj.weather[0].description[0].toUpperCase() + obj.weather[0].description.slice(1)}</p>
               <p className="weather-p">{format(obj.dt * 1000,'HH:mm MMM d')}</p>
+              {!obj.firstCard? (<div><i className="fa fa-times-circle" onClick={() => this.props.delWeatherWidget(obj.id)}></i></div>) : null}
               <table className="weather-table">
                 <tbody>
                   <tr>
@@ -53,10 +55,10 @@ const mapStateToProps = state => {
     weatherData: state.weatherData
   };
 };
-// const mapDispatchToProps = dispatch => {
-//     return {
-//       pokemonsData: (offset, limit) => dispatch(loading(offset, limit))
-//     };
-//   };
+const mapDispatchToProps = dispatch => {
+    return {
+      delWeatherWidget: (id) => dispatch(toDelWidget(id))
+    };
+  };
 
-export default connect(mapStateToProps)(WeatherInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherInfo);

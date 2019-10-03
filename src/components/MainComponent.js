@@ -8,9 +8,6 @@ class MainComponent extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      offset: 0
-    };
   }
 
   componentDidMount() {
@@ -26,10 +23,10 @@ class MainComponent extends React.Component {
 
   render() {
     return (
-      <div className="flex-column">
+      <div className="">
         <h1>Weather Forecast</h1>
         <Form />
-        <div className="d-flex row cards-wrapper">
+        <div className="container">
           <WeatherInfo />
         </div>
       </div>
