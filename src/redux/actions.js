@@ -18,6 +18,10 @@ export function toGetWeatherData(name) {
       `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${API_KEY}&units=metric`
     );
     const data = await api_url.json();
+    // if (data.message) { 
+    //   dispatch({ type: "CITY_ERROR", data })
+    // } 
+    // console.log("ERROR INSIDE ACTIONS", data.message)
 
     dispatch({ type: "FULL_DATA_WEATHER", data });
   };

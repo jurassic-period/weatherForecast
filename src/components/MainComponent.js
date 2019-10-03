@@ -3,6 +3,7 @@ import Form from "./Form";
 import WeatherInfo from "./WeatherInfo";
 import { connect } from "react-redux";
 import { toGetWeatherDataFirstTime } from "../redux/actions";
+import Error from './error-modal';
 
 class MainComponent extends React.Component {
   constructor(props) {

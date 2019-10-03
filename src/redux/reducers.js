@@ -3,12 +3,10 @@ export const reducer = (state = [], action) => {
       case "FULL_DATA_WEATHER":
         return [...state, action.data]; 
       case "DEL_WIDGET":
-          for (let i = 0; i < state.length; i++){
-            if (state[i].id === action.id) {
-               state.splice(i, 1);
-               return state;
-            }
-          }
+          const stateWithoutDelWidget = state.filter(obj => obj.id !== action.id);
+          return stateWithoutDelWidget;
+      case "CITY_ERROR":
+        return state;
       default:
         return state;
     }
