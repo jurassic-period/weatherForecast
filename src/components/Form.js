@@ -23,7 +23,7 @@ class Form extends React.Component {
           <button
             className="button-city"
             type="button"
-            onClick={() => this.props.sendCity(this.state.inputValue)}
+            onClick={() => this.state.inputValue.trim().length > 0? this.props.sendCity(this.state.inputValue) : null}
           >
             To get weather
           </button>

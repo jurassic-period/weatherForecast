@@ -12,17 +12,19 @@ class MainComponent extends React.Component {
   }
 
   componentDidMount() {
-    console.log("this.props: ", this.props);
     const toRunWeatherInfo = this.props.weatherInfo;
+    const propsState = this.props.weatherData;
     navigator.geolocation.getCurrentPosition(function(position) {
       const {
         coords: { latitude, longitude }
       } = position;
-      toRunWeatherInfo(latitude, longitude);
+
+    toRunWeatherInfo(latitude, longitude);
     });
   }
 
   render() {
+
     return (
       <div className="">
         <h1>Weather Forecast</h1>
@@ -36,6 +38,11 @@ class MainComponent extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    weatherData: state.weatherData
+  };
+};
 const mapDispatchToProps = dispatch => {
   return {
     weatherInfo: (lat, lon) => dispatch(toGetWeatherDataFirstTime(lat, lon))
@@ -43,6 +50,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(MainComponent);

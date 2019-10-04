@@ -8,14 +8,13 @@ class Error extends React.Component {
   }
 
   render() {
-    console.log("fucjk", this.props);
     return (
       <div>
         {!this.props.weatherData[0]
           ? null
           : this.props.weatherData.map(obj =>
               obj.cod === "404" ? (
-                <div className="modal-info">
+                <div className="modal-info" key={obj.cod}>
                   <h2>
                     Unfortunately this city is not on our list, or you made a
                     mistake while entering, try again
