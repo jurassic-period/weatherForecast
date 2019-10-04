@@ -15,6 +15,10 @@ code {
 h1 {
   margin-bottom: 30px;
 }
+.form-wrapper {
+  width: 18%;
+  margin: 0 auto;
+}
 .input-city {
   border-radius: 4px;
   background-color: #d8fbff;
@@ -77,7 +81,7 @@ h1 {
   right: 20px;
   top: 6px;
   color: red;
-  font-size: 20px;
+  font-size: 23px;
 }
 .fa:hover {
   -webkit-transform: scale(1.2);
@@ -87,8 +91,8 @@ h1 {
   transition: all 0.1s ease-out;
 }
 
-/* ___________ */
-.modal-info {
+/* Message of mistake*/
+.error-info {
   border: 1px solid #d0cccc;
   margin: 5px 0;
   background: rgba(0,0,0,.85);
@@ -109,4 +113,95 @@ h1 {
   margin: 7px;
   border-radius: 7px;
 }
+.btn-cancel:hover {
+  background-color: white;
+  color: #b71c1c;
+  transition: all 0.5s ease-out;
+}
+/* Message fo mistake finish */
 
+/* ---------------------- Media Queries ---------------------- */
+
+/* 992-1200px */
+@media screen and (max-width: 1199px) {
+	.temp:before {
+    left: 68px;
+  }
+  .title-error {
+    font-size: 28px;
+  }
+}
+
+/* 768-992px */
+@media screen and (max-width: 991px) {
+  .temp:before {
+    left: 30px;
+    top: 8px;
+  }
+  .title-error {
+    font-size: 21px;
+  }
+  .title-widget {
+    font-size: 30px;
+  }
+  .temp {
+    font-size: 25px;
+  }
+  .form-wrapper {
+    width: 30%;
+  }
+}
+
+/* 576-768px */
+@media screen and (max-width: 767px) {
+  .fa {
+    font-size: 26px;
+  }
+  .temp:before {
+    height: 20px;
+    width: 20px;
+    left: 50px;
+  }
+  .error-info {
+    padding: 26px 10px 12px;
+  }
+  .form-wrapper {
+    width: 40%;
+  }
+}
+
+/* 320-576px */
+@media screen and (max-width: 575px) {
+  .temp:before {
+    display: none;
+  }
+  .form-wrapper {
+    width: 60%;
+  }
+  .title-widget {
+    font-size: 27px;
+  }
+  .temp {
+    font-size: 24px;
+  }
+  .fa {
+    font-size: 33px;
+    right: 28px;
+  }
+  .error-info {
+    padding: 13px 10px 5px;
+  }
+  .title-error {
+    font-size: 20px;
+  }
+  .weather-p {
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  .weather-table {
+    width: 95%;
+    color: #505050;
+    margin: 0 auto;
+  }
+  
+}

@@ -30,6 +30,6 @@ export function toDelWidget(id) {
 
 export function toDelError(id) {
   return async dispatch => {
-    dispatch({ type: "DEL_ERROR"});
+    dispatch({ type: "DEL_ERROR" });
   };
 }

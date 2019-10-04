@@ -3,28 +3,26 @@ import Form from "./Form";
 import WeatherInfo from "./WeatherInfo";
 import { connect } from "react-redux";
 import { toGetWeatherDataFirstTime } from "../redux/actions";
-import Error from './error-modal';
+import Error from "./error-message";
 
 class MainComponent extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
-    const toRunWeatherInfo = this.props.weatherInfo;
-    const propsState = this.props.weatherData;
+    const toGetFirstData = this.props.weatherInfo;
+    //To get user coordinates
     navigator.geolocation.getCurrentPosition(function(position) {
       const {
         coords: { latitude, longitude }
       } = position;
 
-    toRunWeatherInfo(latitude, longitude);
+      toGetFirstData(latitude, longitude);
     });
   }
 
   render() {
-
     return (
       <div className="">
         <h1>Weather Forecast</h1>

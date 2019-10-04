@@ -13,7 +13,7 @@ class Form extends React.Component {
   render() {
     return (
       <form>
-        <div className="d-flex flex-column col-3 mx-auto">
+        <div className="d-flex flex-column col form-wrapper">
           <input
             className="input-city"
             type="text"
@@ -23,7 +23,11 @@ class Form extends React.Component {
           <button
             className="button-city"
             type="button"
-            onClick={() => this.state.inputValue.trim().length > 0? this.props.sendCity(this.state.inputValue) : null}
+            onClick={() =>
+              this.state.inputValue.trim().length > 0
+                ? this.props.sendCity(this.state.inputValue)
+                : null
+            }
           >
             To get weather
           </button>
@@ -35,7 +39,7 @@ class Form extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    sendCity: (name) => dispatch(toGetWeatherData(name))
+    sendCity: name => dispatch(toGetWeatherData(name))
   };
 };
 
@@ -43,4 +47,3 @@ export default connect(
   null,
   mapDispatchToProps
 )(Form);
-

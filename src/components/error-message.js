@@ -14,8 +14,8 @@ class Error extends React.Component {
           ? null
           : this.props.weatherData.map(obj =>
               obj.cod === "404" ? (
-                <div className="modal-info" key={obj.cod}>
-                  <h2>
+                <div className="error-info" key={obj.cod}>
+                  <h2 className='title-error'>
                     Unfortunately this city is not on our list, or you made a
                     mistake while entering, try again
                   </h2>
