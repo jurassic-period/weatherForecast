@@ -118,7 +118,10 @@ h1 {
   color: #b71c1c;
   transition: all 0.5s ease-out;
 }
-/* Message fo mistake finish */
+.btn-cancel:focus {
+  outline: 3px auto;
+}
+/* Message for mistake finish */
 
 /* ---------------------- Media Queries ---------------------- */
 

@@ -5,6 +5,11 @@ import { toDelError } from "../redux/actions";
 class Error extends React.Component {
   constructor(props) {
     super(props);
+    this.focus = this.focus.bind(this);
+  }
+
+  focus() {
+    this.buttonCancel.focus();
   }
 
   render() {
@@ -20,6 +25,7 @@ class Error extends React.Component {
                     mistake while entering, try again
                   </h2>
                   <button
+                    ref={button => button && button.focus() }
                     className="btn-cancel"
                     onClick={() => this.props.errorDel()}
                   >
