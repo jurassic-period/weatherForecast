@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import Form from "./Form";
 import WeatherInfo from "./WeatherInfo";
 import { connect } from "react-redux";
 import { toGetWeatherDataFirstTime } from "../redux/actions";
 import Error from "./error-message";
 
-class MainComponent extends React.Component {
+class MainComponent extends Component {
   constructor(props) {
     super(props);
   }

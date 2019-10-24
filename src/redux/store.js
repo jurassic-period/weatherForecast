@@ -2,19 +2,21 @@ import { createStore, applyMiddleware, combineReducers } from "redux";
 import { reducer } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
 // To save and load data in localStorage ___________________
 const saveState = state => {
   try {
     const serialisedState = JSON.stringify(state);
 
-    window.localStorage.setItem("app_state", serialisedState);
+    window.localStorage.setItem("state", serialisedState);
   } catch (err) {}
 };
 
 const loadState = () => {
   try {
-    const serialisedState = window.localStorage.getItem("app_state");
+    const serialisedState = window.localStorage.getItem("state");
 
     if (!serialisedState) return undefined;
     return JSON.parse(serialisedState);

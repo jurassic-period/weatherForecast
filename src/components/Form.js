@@ -12,18 +12,24 @@ class Form extends React.Component {
 
   toAddNewWidgetOnClick(e) {
     e.preventDefault();
-    return this.state.inputValue.trim().length > 0
-      ? this.props.sendCity(this.state.inputValue)
-      : null;
+    const { inputValue } = this.state;
+    if (inputValue.trim().length > 0) {
+      this.props.sendCity(inputValue);
+    }
+    this.setState({
+      inputValue: ""
+    });
   }
 
   render() {
+    const { inputValue } = this.state;
     return (
       <form onSubmit={e => this.toAddNewWidgetOnClick(e)}>
         <div className="d-flex flex-column col form-wrapper">
           <input
             className="input-city"
             type="text"
+            value={inputValue}
             placeholder="Your city name"
             onChange={e => this.setState({ inputValue: e.target.value })}
           />
