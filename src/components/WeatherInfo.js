@@ -13,7 +13,7 @@ class WeatherInfo extends React.Component {
               obj.cod === "404" ? null : (
                 <div key={obj.id} className="weather-elem col-md-4 col-sm-6">
                   <h2 className="title-widget">
-                     {obj.name}, {obj.sys.country}
+                    {obj.name}, {obj.sys.country}
                   </h2>
                   <h3 className="temp">{obj.main.temp}°C</h3>
                   <p className="weather-p">

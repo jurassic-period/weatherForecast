@@ -1,8 +1,10 @@
 export const reducer = (state = [], action) => {
   switch (action.type) {
     case "FULL_DATA_WEATHER":
-      const noRepetition = state.filter(obj => obj.name !== action.data.name);
-      return action.data.firstCard? [action.data, ...noRepetition] : [...noRepetition, action.data];
+      if (state.some(obj => obj.name === action.data.name)) {
+        return state;
+      }
+      return [...state, action.data];
     case "DEL_WIDGET":
       const stateWithoutDelWidget = state.filter(obj => obj.id !== action.id);
       return stateWithoutDelWidget;
