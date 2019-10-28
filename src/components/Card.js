@@ -2,11 +2,8 @@ import React from "react";
 import { format } from "date-fns"; // from https://date-fns.org
 
 export default function Card({ obj }) {
-    // const name = obj.name;
-    // const country = obj.sys.country
-    const {name, country, speed, id, pressure, humidity, sunrise} = obj;
-    console.log(obj)
-    console.log(country)
+  const { name, speed, pressure, humidity } = obj;
+  const { country, id, sunrise, sunset } = obj.sys;
   return (
     <div className="weather-elem col-md-4 col-sm-6">
       <h2 className="title-widget">
@@ -49,13 +46,13 @@ export default function Card({ obj }) {
           <tr>
             <td className="weather-table__td">Sunrise</td>
             <td className="weather-table__td">
-              {format(obj.sys.sunrise * 1000, "HH:mm")}
+              {format(sunrise * 1000, "HH:mm")}
             </td>
           </tr>
           <tr>
             <td className="weather-table__td">Sunset</td>
             <td className="weather-table__td">
-              {format(obj.sys.sunset * 1000, "HH:mm")}
+              {format(sunset * 1000, "HH:mm")}
             </td>
           </tr>
         </tbody>
