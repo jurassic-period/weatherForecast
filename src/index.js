@@ -8,7 +8,6 @@ import storeFunc from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 
 const { store, persistor } = storeFunc();
-console.log("VOTVOTVOT!!!!!!", storeFunc);
 
 ReactDOM.render(
   <Provider store={store}>

@@ -6,9 +6,7 @@ import { toGetWeatherDataFirstTime } from "../redux/actions";
 import Error from "./error-message";
 
 class MainComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
+  
 
   componentDidMount() {
     const toGetFirstData = this.props.weatherInfo;
@@ -24,7 +22,7 @@ class MainComponent extends Component {
 
   render() {
     return (
-      <div className="">
+      <div>
         <h1>Weather Forecast</h1>
         <Form />
         <Error />

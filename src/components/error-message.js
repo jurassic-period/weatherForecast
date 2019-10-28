@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { toDelError } from "../redux/actions";
 
-class Error extends React.Component {
+class Error extends Component {
   constructor(props) {
     super(props);
     this.focus = this.focus.bind(this);
@@ -20,12 +20,12 @@ class Error extends React.Component {
           : this.props.weatherData.map(obj =>
               obj.cod === "404" ? (
                 <div className="error-info" key={obj.cod}>
-                  <h2 className='title-error'>
+                  <h2 className="title-error">
                     Unfortunately this city is not on our list, or you made a
                     mistake while entering, try again
                   </h2>
                   <button
-                    ref={button => button && button.focus() }
+                    ref={button => button && button.focus()}
                     className="btn-cancel"
                     onClick={() => this.props.errorDel()}
                   >

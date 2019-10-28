@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { format } from "date-fns"; // from https://date-fns.org
 import { toDelWidget } from "../redux/actions";
 
-class WeatherInfo extends React.Component {
+class WeatherInfo extends Component {
   render() {
     return (
       <div className="weather-card row d-flex">
