@@ -2,10 +2,15 @@ import React from "react";
 import { format } from "date-fns"; // from https://date-fns.org
 
 export default function Card({ obj }) {
+    // const name = obj.name;
+    // const country = obj.sys.country
+    const {name, country, speed, id, pressure, humidity, sunrise} = obj;
+    console.log(obj)
+    console.log(country)
   return (
     <div className="weather-elem col-md-4 col-sm-6">
       <h2 className="title-widget">
-        {obj.name}, {obj.sys.country}
+        {name}, {country}
       </h2>
       <h3 className="temp">{obj.main.temp}°C</h3>
       <p className="weather-p">
@@ -17,7 +22,7 @@ export default function Card({ obj }) {
         <div>
           <i
             className="fa fa-times-circle"
-            onClick={() => this.props.delWeatherWidget(obj.id)}
+            onClick={() => this.props.delWeatherWidget(id)}
           ></i>
         </div>
       ) : null}
@@ -25,7 +30,7 @@ export default function Card({ obj }) {
         <tbody>
           <tr>
             <td className="weather-table__td">Wind</td>
-            <td className="weather-table__td">{obj.wind.speed}m/s</td>
+            <td className="weather-table__td">{speed}m/s</td>
           </tr>
           <tr>
             <td className="weather-table__td">Tempreture (max/min)</td>
@@ -35,11 +40,11 @@ export default function Card({ obj }) {
           </tr>
           <tr>
             <td className="weather-table__td">Pressure</td>
-            <td className="weather-table__td">{obj.main.pressure} hpa</td>
+            <td className="weather-table__td">{pressure} hpa</td>
           </tr>
           <tr>
             <td className="weather-table__td">Humidity</td>
-            <td className="weather-table__td">{obj.main.humidity} %</td>
+            <td className="weather-table__td">{humidity} %</td>
           </tr>
           <tr>
             <td className="weather-table__td">Sunrise</td>
