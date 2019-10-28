@@ -1,7 +1,7 @@
 const API_KEY = "457f40520ab80a953c8f425fc21de253";
 const API_URL = "https://api.openweathermap.org/data/2.5/";
 
-export function toGetWeatherDataFirstTime(latitude, longitude) {
+export function getLocalWeather(latitude, longitude) {
   return async dispatch => {
     const api_url = await fetch(
       `${API_URL}weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`

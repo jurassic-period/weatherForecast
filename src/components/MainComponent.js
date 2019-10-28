@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import Form from "./Form";
 import WeatherInfo from "./WeatherInfo";
 import { connect } from "react-redux";
-import { toGetWeatherDataFirstTime } from "../redux/actions";
+import { getLocalWeather } from "../redux/actions";
 import Error from "./error-message";
 
 class MainComponent extends Component {
-  
-
   componentDidMount() {
     const toGetFirstData = this.props.weatherInfo;
     //To get user coordinates
@@ -15,7 +13,6 @@ class MainComponent extends Component {
       const {
         coords: { latitude, longitude }
       } = position;
-
       toGetFirstData(latitude, longitude);
     });
   }
@@ -34,18 +31,13 @@ class MainComponent extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    weatherData: state.weatherData
-  };
-};
 const mapDispatchToProps = dispatch => {
   return {
-    weatherInfo: (lat, lon) => dispatch(toGetWeatherDataFirstTime(lat, lon))
+    weatherInfo: (lat, lon) => dispatch(getLocalWeather(lat, lon))
   };
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(MainComponent);

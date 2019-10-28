@@ -4,6 +4,7 @@ import { format } from "date-fns"; // from https://date-fns.org
 export default function Card({ obj }) {
   const { name, speed, pressure, humidity } = obj;
   const { country, id, sunrise, sunset } = obj.sys;
+  const { temp_max, temp_min } = obj.main;
   return (
     <div className="weather-elem col-md-4 col-sm-6">
       <h2 className="title-widget">
@@ -32,7 +33,7 @@ export default function Card({ obj }) {
           <tr>
             <td className="weather-table__td">Tempreture (max/min)</td>
             <td className="weather-table__td">
-              {obj.main.temp_max}°C / {obj.main.temp_min}°C
+              {temp_max}°C / {temp_min}°C
             </td>
           </tr>
           <tr>
