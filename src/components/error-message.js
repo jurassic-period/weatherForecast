@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { toDelError } from "../redux/actions";
+import { closeError } from "../redux/actions";
 
 class Error extends Component {
   constructor(props) {
@@ -46,7 +46,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    errorDel: () => dispatch(toDelError())
+    errorDel: () => dispatch(closeError())
   };
 };
 

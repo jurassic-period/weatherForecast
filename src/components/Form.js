@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { toGetWeatherData } from "../redux/actions";
+import { getWeather } from "../redux/actions";
 
 class Form extends Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class Form extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    sendCity: name => dispatch(toGetWeatherData(name))
+    sendCity: name => dispatch(getWeather(name))
   };
 };
 

@@ -9,27 +9,27 @@ export function getLocalWeather(latitude, longitude) {
     const data = await api_url.json();
     data.firstCard = true;
 
-    dispatch({ type: "FULL_DATA_WEATHER", data });
+    dispatch({ type: "GET_WEATHER", data });
   };
 }
 
-export function toGetWeatherData(name) {
+export function getWeather(name) {
   return async dispatch => {
     const api_url = await fetch(
       `${API_URL}weather?q=${name}&appid=${API_KEY}&units=metric`
     );
     const data = await api_url.json();
-    dispatch({ type: "FULL_DATA_WEATHER", data });
+    dispatch({ type: "GET_WEATHER", data });
   };
 }
 
-export function toDelWidget(id) {
+export function delWidget(id) {
   return async dispatch => {
     dispatch({ type: "DEL_WIDGET", id });
   };
 }
 
-export function toDelError(id) {
+export function closeError(id) {
   return async dispatch => {
     dispatch({ type: "DEL_ERROR" });
   };

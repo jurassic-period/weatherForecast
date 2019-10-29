@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { toDelWidget } from "../redux/actions";
+import { delWidget } from "../redux/actions";
 import Card from "./Card";
 
 class WeatherInfo extends Component {
@@ -24,7 +24,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    delWeatherWidget: id => dispatch(toDelWidget(id))
+    delWeatherWidget: id => dispatch(delWidget(id))
   };
 };
 

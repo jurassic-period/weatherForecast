@@ -1,6 +1,6 @@
 export const reducer = (state = [], action) => {
   switch (action.type) {
-    case "FULL_DATA_WEATHER":
+    case "GET_WEATHER":
       if (state.some(obj => obj.name === action.data.name)) {
         return state;
       }

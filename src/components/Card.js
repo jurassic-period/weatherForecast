@@ -5,14 +5,14 @@ export default function Card({ obj }) {
   console.log(obj);
   const { name } = obj;
   const { country, id, sunrise, sunset } = obj.sys;
-  const { pressure, humidity, temp_max, temp_min } = obj.main;
+  const { temp, pressure, humidity, temp_max, temp_min } = obj.main;
   const { speed } = obj.wind;
   return (
     <div className="weather-elem col-md-4 col-sm-6">
       <h2 className="title-widget">
         {name}, {country}
       </h2>
-      <h3 className="temp">{obj.main.temp}°C</h3>
+      <h3 className="temp">{temp}°C</h3>
       <p className="weather-p">
         {obj.weather[0].description[0].toUpperCase() +
           obj.weather[0].description.slice(1)}
@@ -30,7 +30,7 @@ export default function Card({ obj }) {
         <tbody>
           <tr>
             <td className="weather-table__td">Wind</td>
-            <td className="weather-table__td">{speed}m/s</td>
+            <td className="weather-table__td">{speed} m/s</td>
           </tr>
           <tr>
             <td className="weather-table__td">Tempreture (max/min)</td>
