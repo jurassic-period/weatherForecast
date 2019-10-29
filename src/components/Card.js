@@ -1,12 +1,11 @@
 import React from "react";
 import { format } from "date-fns"; // from https://date-fns.org
 
-export default function Card({ obj, deliteWidget }) {
-  const { name } = obj;
-  const { country, id, sunrise, sunset } = obj.sys;
+export default function Card({ obj, delWidget }) {
+  const { name, id } = obj;
+  const { country, sunrise, sunset } = obj.sys;
   const { temp, pressure, humidity, temp_max, temp_min } = obj.main;
   const { speed } = obj.wind;
-  console.log(name, id)
   return (
     <div className="weather-elem col-md-4 col-sm-6">
       <h2 className="title-widget">
@@ -22,7 +21,7 @@ export default function Card({ obj, deliteWidget }) {
         <div>
           <i
             className="fa fa-times-circle"
-            onClick={() => deliteWidget(id)}
+            onClick={() => delWidget(id)}
           ></i>
         </div>
       ) : null}

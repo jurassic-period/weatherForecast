@@ -1,19 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { delWidget } from "../redux/actions";
+import { deliteWidget } from "../redux/actions";
 import Card from "./Card";
 
 class WeatherInfo extends Component {
   render() {
-    const { weatherData, deliteWidget } = this.props;
-    console.log(this.props);
-    const deliteWidget2 = (id) => deliteWidget(id);
+    const { weatherData, delWidget } = this.props;
     return (
       <div className="weather-card row d-flex">
         {!weatherData[0]
           ? null
           : weatherData.map(obj =>
-              obj.cod === "404" ? null : <Card key={obj.id} obj={obj} deliteWidget={deliteWidget2} />
+              obj.cod === "404" ? null : <Card key={obj.id} obj={obj} delWidget={delWidget} />
             )}
       </div>
     );
@@ -27,7 +25,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    deliteWidget: id => dispatch(delWidget(id))
+    delWidget: id => dispatch(deliteWidget(id))
   };
 };
 

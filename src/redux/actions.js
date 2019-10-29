@@ -23,7 +23,7 @@ export function getWeather(name) {
   };
 }
 
-export function delWidget(id) {
+export function deliteWidget(id) {
   return async dispatch => {
     dispatch({ type: "DEL_WIDGET", id });
   };
