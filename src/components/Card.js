@@ -2,9 +2,11 @@ import React from "react";
 import { format } from "date-fns"; // from https://date-fns.org
 
 export default function Card({ obj }) {
-  const { name, speed, pressure, humidity } = obj;
+  console.log(obj);
+  const { name } = obj;
   const { country, id, sunrise, sunset } = obj.sys;
-  const { temp_max, temp_min } = obj.main;
+  const { pressure, humidity, temp_max, temp_min } = obj.main;
+  const { speed } = obj.wind;
   return (
     <div className="weather-elem col-md-4 col-sm-6">
       <h2 className="title-widget">
