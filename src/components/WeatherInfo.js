@@ -5,12 +5,15 @@ import Card from "./Card";
 
 class WeatherInfo extends Component {
   render() {
+    const { weatherData, deliteWidget } = this.props;
+    console.log(this.props);
+    const deliteWidget2 = (id) => deliteWidget(id);
     return (
       <div className="weather-card row d-flex">
-        {!this.props.weatherData[0]
+        {!weatherData[0]
           ? null
-          : this.props.weatherData.map(obj =>
-              obj.cod === "404" ? null : <Card key={obj.id} obj={obj} />
+          : weatherData.map(obj =>
+              obj.cod === "404" ? null : <Card key={obj.id} obj={obj} deliteWidget={deliteWidget2} />
             )}
       </div>
     );
@@ -24,7 +27,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    delWeatherWidget: id => dispatch(delWidget(id))
+    deliteWidget: id => dispatch(delWidget(id))
   };
 };
 
