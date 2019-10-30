@@ -1,7 +1,12 @@
 export const reducer = (state = [], action) => {
   switch (action.type) {
     case "GET_WEATHER":
-      if (state.some(obj => obj.name === action.data.name)) {
+      if (action.data.firstCard) {
+        const stateWithoutPreviousLocalPosition = state.filter(
+          obj => !obj.firstCard
+        );
+        return [action.data, ...stateWithoutPreviousLocalPosition];
+      } else if (state.some(obj => obj.name === action.data.name)) {
         return state;
       }
       return [...state, action.data];
