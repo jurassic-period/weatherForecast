@@ -13,11 +13,12 @@ class Error extends Component {
   }
 
   render() {
+    const { weatherData } = this.props;
     return (
       <div>
-        {!this.props.weatherData[0]
+        {!weatherData[0]
           ? null
-          : this.props.weatherData.map(obj =>
+          : weatherData.map(obj =>
               obj.cod === "404" ? (
                 <div className="error-info" key={obj.cod}>
                   <h2 className="title-error">

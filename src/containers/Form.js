@@ -13,7 +13,7 @@ class Form extends Component {
   toAddNewWidgetOnClick(e) {
     e.preventDefault();
     const { inputValue } = this.state;
-    if (inputValue.trim().length > 0) {
+    if (inputValue.trim().length) {
       this.props.sendCity(inputValue);
     }
     this.setState({

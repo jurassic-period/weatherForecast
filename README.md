@@ -1,1 +1,1 @@
-My new project Weather Forecast
+Weather Forecast

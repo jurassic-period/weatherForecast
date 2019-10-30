@@ -3,7 +3,7 @@ import Form from "./Form";
 import WeatherInfo from "./WeatherInfo";
 import { connect } from "react-redux";
 import { getLocalWeather } from "../redux/actions";
-import Error from "./error-message";
+import Error from "../components/error-message";
 
 class MainComponent extends Component {
   componentDidMount() {
