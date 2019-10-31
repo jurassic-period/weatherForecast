@@ -13,9 +13,17 @@ export const reducer = (state = [], action) => {
     case "DEL_WIDGET":
       const stateWithoutDelWidget = state.filter(obj => obj.id !== action.id);
       return stateWithoutDelWidget;
+    default:
+      return state;
+  }
+};
+
+export const reducerError = (state = [], action) => {
+  switch (action.type) {
+    case "ERROR_INPUT":
+      return [action.data];
     case "DEL_ERROR":
-      const stateWithoutError = state.filter(obj => obj.cod !== "404");
-      return stateWithoutError;
+      return [];
     default:
       return state;
   }

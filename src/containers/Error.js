@@ -6,16 +6,16 @@ import ErrorMessage from '../components/Error-message';
 class Error extends Component {
 
   render() {
-    const { weatherData, errorDel } = this.props;
+    const { weatherError, errorDel } = this.props;
     return (
-      <ErrorMessage weatherData={weatherData} errorDel={errorDel}/>
+      <ErrorMessage weatherError={weatherError} errorDel={errorDel}/>
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    weatherData: state.weatherData
+    weatherError: state.errors
   };
 };
 const mapDispatchToProps = dispatch => {

@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
-import { reducer } from "./reducers";
+import { reducer, reducerError } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { persistStore, persistReducer } from "redux-persist";
@@ -12,8 +12,9 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(
   persistConfig,
-  combineReducers({ weatherData: reducer })
+  combineReducers({ weatherData: reducer, errors: reducerError })
 );
+
 
 export default () => {
   let store = createStore(
@@ -21,6 +22,11 @@ export default () => {
     composeWithDevTools(applyMiddleware(thunk))
   );
   let persistor = persistStore(store);
+
+  store.subscribe(() => {
+    console.log(store.getState());
+  });
+
   return { store, persistor };
 };
 

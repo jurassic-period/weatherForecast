@@ -10,9 +10,9 @@ class WeatherInfo extends Component {
       <div className="weather-card row d-flex">
         {!weatherData.length
           ? null
-          : weatherData.map(obj =>
-              obj.cod === "404" ? null : <Card key={obj.id} obj={obj} delWidget={delWidget} />
-            )}
+          : weatherData.map(obj => (
+              <Card key={obj.id} obj={obj} delWidget={delWidget} />
+            ))}
       </div>
     );
   }
