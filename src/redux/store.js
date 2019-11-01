@@ -23,7 +23,6 @@ export default () => {
   let persistor = persistStore(store);
 
   store.subscribe(() => {
-    console.log(store.getState());
   });
 
   return { store, persistor };
