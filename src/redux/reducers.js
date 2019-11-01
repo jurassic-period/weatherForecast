@@ -18,12 +18,12 @@ export const reducer = (state = [], action) => {
   }
 };
 
-export const reducerError = (state = [], action) => {
+export const reducerError = (state = {}, action) => {
   switch (action.type) {
     case "ERROR_INPUT":
-      return [action.data];
+      return action.data 
     case "DEL_ERROR":
-      return [];
+      return {};
     default:
       return state;
   }

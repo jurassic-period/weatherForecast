@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getWeather } from "../redux/actions";
 import Input from "../components/ Input";
 
-class Header extends Component {
+class HeaderInput extends Component {
   state = {
     inputValue: ""
   };
@@ -51,4 +51,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   null,
   mapDispatchToProps
-)(Header);
+)(HeaderInput);
