@@ -1,5 +1,9 @@
 import React from "react";
 import { format } from "date-fns"; // from https://date-fns.org
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableRow from "@material-ui/core/TableRow";
 
 export default function Card({ obj, delWidget }) {
   const { name, id, weather } = obj;
@@ -19,46 +23,43 @@ export default function Card({ obj, delWidget }) {
       <p className="weather-p">{format(obj.dt * 1000, "HH:mm MMM d")}</p>
       {!obj.firstCard ? (
         <div>
-          <i
-            className="fa fa-times-circle"
-            onClick={() => delWidget(id)}
-          ></i>
+          <i className="fa fa-times-circle" onClick={() => delWidget(id)}></i>
         </div>
       ) : null}
-      <table className="weather-table">
-        <tbody>
-          <tr>
-            <td className="weather-table__td">Wind</td>
-            <td className="weather-table__td">{speed} m/s</td>
-          </tr>
-          <tr>
-            <td className="weather-table__td">Tempreture (max/min)</td>
-            <td className="weather-table__td">
+      <Table className="weather-table" size="small" aria-label="a dense table">
+        <TableBody>
+          <TableRow>
+            <TableCell className="weather-cell">Wind</TableCell>
+            <TableCell align="right">{speed} m/s</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className="weather-cell">Tempreture (max/min)</TableCell>
+            <TableCell align="right">
               {temp_max}°C / {temp_min}°C
-            </td>
-          </tr>
-          <tr>
-            <td className="weather-table__td">Pressure</td>
-            <td className="weather-table__td">{pressure} hpa</td>
-          </tr>
-          <tr>
-            <td className="weather-table__td">Humidity</td>
-            <td className="weather-table__td">{humidity} %</td>
-          </tr>
-          <tr>
-            <td className="weather-table__td">Sunrise</td>
-            <td className="weather-table__td">
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className="weather-cell">Pressure</TableCell>
+            <TableCell align="right">{pressure} hpa</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className="weather-cell">Humidity</TableCell>
+            <TableCell align="right">{humidity} %</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className="weather-cell">Sunrise</TableCell>
+            <TableCell align="right">
               {format(sunrise * 1000, "HH:mm")}
-            </td>
-          </tr>
-          <tr>
-            <td className="weather-table__td">Sunset</td>
-            <td className="weather-table__td">
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className="weather-cell">Sunset</TableCell>
+            <TableCell align="right">
               {format(sunset * 1000, "HH:mm")}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
     </div>
   );
 }

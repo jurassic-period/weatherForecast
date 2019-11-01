@@ -71,7 +71,7 @@ h1 {
   width: 100%;
   color: #505050;
 }
-.weather-table__td {
+.weather-cell {
   text-align: left;
   padding: 5px;
   border: 1px solid #ddd;
