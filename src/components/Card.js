@@ -2,7 +2,7 @@ import React from "react";
 import { format } from "date-fns"; // from https://date-fns.org
 
 export default function Card({ obj, delWidget }) {
-  const { name, id } = obj;
+  const { name, id, weather } = obj;
   const { country, sunrise, sunset } = obj.sys;
   const { temp, pressure, humidity, temp_max, temp_min } = obj.main;
   const { speed } = obj.wind;
@@ -13,8 +13,8 @@ export default function Card({ obj, delWidget }) {
       </h2>
       <h3 className="temp">{temp}°C</h3>
       <p className="weather-p">
-        {obj.weather[0].description[0].toUpperCase() +
-          obj.weather[0].description.slice(1)}
+        {weather[0].description[0].toUpperCase() +
+          weather[0].description.slice(1)}
       </p>
       <p className="weather-p">{format(obj.dt * 1000, "HH:mm MMM d")}</p>
       {!obj.firstCard ? (

@@ -120,6 +120,7 @@ h1 {
 }
 .btn-cancel:focus {
   outline: 3px auto;
+  border-radius: 1px;
 }
 /* Message for mistake finish */
 

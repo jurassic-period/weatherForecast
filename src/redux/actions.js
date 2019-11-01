@@ -19,11 +19,11 @@ export function getWeather(name) {
       `${API_BASE}weather?q=${name}&appid=${API_KEY}&units=metric`
     );
     const data = await api_url.json();
-    if (data.cod === 200 ) {
-    dispatch({ type: "GET_WEATHER", data });
-  } else {
-    dispatch({ type: "ERROR_INPUT", data });
-  }
+    if (data.cod === 200) {
+      dispatch({ type: "GET_WEATHER", data });
+    } else {
+      dispatch({ type: "ERROR_INPUT", data });
+    }
   };
 }
 

@@ -15,7 +15,6 @@ const persistedReducer = persistReducer(
   combineReducers({ weatherData: reducer, errors: reducerError })
 );
 
-
 export default () => {
   let store = createStore(
     persistedReducer,
