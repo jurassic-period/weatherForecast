@@ -1,11 +1,16 @@
 body {
   margin: 0;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #0f8a9a;
-  background: rgb(255,240,240);
-  background: radial-gradient(circle, rgba(255,240,240,1) 0%, rgba(240,255,255,1) 95%, rgba(240,246,255,1) 100%);
+  background: rgb(255, 240, 240);
+  background: radial-gradient(
+    circle,
+    rgba(255, 240, 240, 1) 0%,
+    rgba(240, 255, 255, 1) 95%,
+    rgba(240, 246, 255, 1) 100%
+  );
 }
 
 code {
@@ -22,26 +27,28 @@ h1 {
 .input-city {
   border-radius: 4px;
   background-color: #d8fbff;
-  border-color: #607D8B;
+  border-color: #607d8b;
   text-align: center;
   border: 1px solid #ccc;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 .input-city:focus {
   outline: 0;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
 }
 
 .button-city {
   border-radius: 4px;
   color: azure;
-  background-color: #607D8B;
+  background-color: #607d8b;
 }
 .button-city:focus {
   outline: 0;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
 }
-.weather-elem{
+.weather-elem {
   margin-top: 35px;
 }
 .weather-card {
@@ -52,7 +59,7 @@ h1 {
   position: relative;
 }
 .temp:before {
-  content: '';
+  content: "";
   background-color: #9c27b0;
   position: absolute;
   height: 22px;
@@ -65,7 +72,7 @@ h1 {
   text-align: left;
 }
 .weather-table {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 15px;
   border: 1px solid #ddd;
   width: 100%;
@@ -95,7 +102,7 @@ h1 {
 .error-info {
   border: 1px solid #d0cccc;
   margin: 5px 0;
-  background: rgba(0,0,0,.85);
+  background: rgba(0, 0, 0, 0.85);
   padding: 33px 0 20px;
   position: absolute;
   top: 0;
@@ -128,7 +135,7 @@ h1 {
 
 /* 992-1200px */
 @media screen and (max-width: 1199px) {
-	.temp:before {
+  .temp:before {
     left: 68px;
   }
   .title-error {
@@ -207,5 +214,4 @@ h1 {
     color: #505050;
     margin: 0 auto;
   }
-  
 }

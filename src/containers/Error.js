@@ -12,7 +12,7 @@ class Error extends Component {
 
 const mapStateToProps = state => {
   return {
-    weatherError: state.errors
+    weatherError: state.error
   };
 };
 const mapDispatchToProps = dispatch => {

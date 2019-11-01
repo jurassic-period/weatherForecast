@@ -12,7 +12,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(
   persistConfig,
-  combineReducers({ weatherData: reducer, errors: reducerError })
+  combineReducers({ weatherData: reducer, error: reducerError })
 );
 
 export default () => {
