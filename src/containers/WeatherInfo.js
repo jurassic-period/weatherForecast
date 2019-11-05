@@ -8,15 +8,14 @@ class WeatherInfo extends Component {
     const { weatherData, delWidget } = this.props;
     return (
       <div className="weather-card row d-flex">
-        {!weatherData.length
-          ? null
-          : weatherData.map(obj => (
-              <Card
-                key={obj.name + "_" + obj.id}
-                obj={obj}
-                delWidget={delWidget}
-              />
-            ))}
+        {weatherData.length &&
+          weatherData.map(obj => (
+            <Card
+              key={obj.name + "_" + obj.id}
+              obj={obj}
+              delWidget={delWidget}
+            />
+          ))}
       </div>
     );
   }

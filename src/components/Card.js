@@ -21,11 +21,11 @@ export default function Card({ obj, delWidget }) {
           weather[0].description.slice(1)}
       </p>
       <p className="weather-p">{format(obj.dt * 1000, "HH:mm MMM d")}</p>
-      {!obj.firstCard ? (
+      {!obj.firstCard && (
         <div>
           <i className="fa fa-times-circle" onClick={() => delWidget(id)}></i>
         </div>
-      ) : null}
+      )}
       <Table className="weather-table" size="small" aria-label="a dense table">
         <TableBody>
           <TableRow>
