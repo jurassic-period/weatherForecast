@@ -8,7 +8,8 @@ class HeaderInput extends Component {
     inputValue: ""
   };
 
-  saveValue = value => {
+  saveValue = event => {
+    const { value } = event.target;
     this.setState(() => {
       return {
         inputValue: value

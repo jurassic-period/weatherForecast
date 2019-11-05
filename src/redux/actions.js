@@ -1,5 +1,6 @@
 const API_KEY = "457f40520ab80a953c8f425fc21de253";
 const API_BASE = "https://api.openweathermap.org/data/2.5/";
+const GET_WEATHER = 'GET_WEATHER';
 
 export function getLocalWeather(latitude, longitude) {
   return async dispatch => {
@@ -9,7 +10,7 @@ export function getLocalWeather(latitude, longitude) {
     const data = await api_url.json();
     data.firstCard = true;
 
-    dispatch({ type: "GET_WEATHER", data });
+    dispatch({ type: GET_WEATHER, data });
   };
 }
 
@@ -20,7 +21,7 @@ export function getWeather(name) {
     );
     const data = await api_url.json();
     if (data.cod === 200) {
-      dispatch({ type: "GET_WEATHER", data });
+      dispatch({ type: GET_WEATHER, data });
     } else {
       dispatch({ type: "ERROR_INPUT", data });
     }

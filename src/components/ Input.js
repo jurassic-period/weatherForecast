@@ -8,8 +8,8 @@ export default function Input({ inputValue, newCity, saveValue }) {
           className="input-city"
           type="text"
           value={inputValue}
-          placeholder="Your city name"
-          onChange={e => saveValue(e.target.value)}
+          placeholder="Your city name" 
+          onChange={saveValue}
         />
         <button className="button-city">To get weather</button>
       </div>

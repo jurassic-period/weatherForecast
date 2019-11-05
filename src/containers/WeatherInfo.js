@@ -11,7 +11,7 @@ class WeatherInfo extends Component {
         {weatherData.length &&
           weatherData.map(obj => (
             <Card
-              key={obj.name + "_" + obj.id}
+              key={`${obj.name}_${obj.id}`}
               obj={obj}
               delWidget={delWidget}
             />
