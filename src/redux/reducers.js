@@ -1,6 +1,8 @@
+import { GET_WEATHER, ERROR_INPUT, DEL_WIDGET, DEL_ERROR } from './actions';
+
 export const reducer = (state = [], action) => {
   switch (action.type) {
-    case "GET_WEATHER":
+    case GET_WEATHER:
       if (action.data.firstCard) {
         const stateWithoutPreviousLocalPosition = state.filter(
           obj => !obj.firstCard
@@ -10,7 +12,7 @@ export const reducer = (state = [], action) => {
         return state;
       }
       return [...state, action.data];
-    case "DEL_WIDGET":
+    case DEL_WIDGET:
       const stateWithoutDelWidget = state.filter(obj => obj.id !== action.id);
       return stateWithoutDelWidget;
     default:
@@ -20,9 +22,9 @@ export const reducer = (state = [], action) => {
 
 export const reducerError = (state = {}, action) => {
   switch (action.type) {
-    case "ERROR_INPUT":
+    case ERROR_INPUT:
       return action.data;
-    case "DEL_ERROR":
+    case DEL_ERROR:
       return {};
     default:
       return state;

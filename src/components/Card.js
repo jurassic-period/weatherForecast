@@ -6,10 +6,14 @@ import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 
 export default function Card({ obj, delWidget }) {
-  const { name, id, weather } = obj;
-  const { country, sunrise, sunset } = obj.sys;
-  const { temp, pressure, humidity, temp_max, temp_min } = obj.main;
-  const { speed } = obj.wind;
+  const {
+    name,
+    id,
+    weather,
+    sys: { country, sunrise, sunset },
+    main: { temp, pressure, humidity, temp_max, temp_min },
+    wind: { speed }
+  } = obj;
   return (
     <div className="weather-elem col-md-4 col-sm-6">
       <h2 className="title-widget">
