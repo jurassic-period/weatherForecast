@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { deliteWidget } from "../redux/actions";
-import Card from "../components/Card";
+import { deliteCity } from "../actions";
+import Card from "../components/card";
 
 class WeatherInfo extends Component {
   render() {
-    const { weatherData, delWidget } = this.props;
+    const { weatherData, delCity } = this.props;
     return (
       <div className="weather-card row d-flex">
         {weatherData.length &&
@@ -13,7 +13,7 @@ class WeatherInfo extends Component {
             <Card
               key={`${obj.name}_${obj.id}`}
               obj={obj}
-              delWidget={delWidget}
+              delCity={delCity}
             />
           ))}
       </div>
@@ -28,7 +28,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    delWidget: id => dispatch(deliteWidget(id))
+    delCity: id => dispatch(deliteCity(id))
   };
 };
 

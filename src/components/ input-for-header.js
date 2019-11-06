@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Input({ inputValue, newCity, saveValue }) {
+export default function InputForHeader({ inputValue, addText, saveValue }) {
   return (
-    <form onSubmit={e => newCity(e)}>
+    <form onSubmit={e => addText(e)}>
       <div className="d-flex flex-column col form-wrapper">
         <input
           className="input-city"

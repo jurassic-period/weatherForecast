@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { closeError } from "../redux/actions";
-import ErrorMessage from "../components/Error-message";
+import { closeError } from "../actions";
+import ErrorMessage from "../components/error-message";
 
 class Error extends Component {
   render() {

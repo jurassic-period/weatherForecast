@@ -5,7 +5,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 
-export default function Card({ obj, delWidget }) {
+export default function Card({ obj, delCity }) {
   const {
     name,
     id,
@@ -27,7 +27,7 @@ export default function Card({ obj, delWidget }) {
       <p className="weather-p">{format(obj.dt * 1000, "HH:mm MMM d")}</p>
       {!obj.firstCard && (
         <div>
-          <i className="fa fa-times-circle" onClick={() => delWidget(id)}></i>
+          <i className="fa fa-times-circle" onClick={() => delCity(id)}></i>
         </div>
       )}
       <Table className="weather-table" size="small" aria-label="a dense table">

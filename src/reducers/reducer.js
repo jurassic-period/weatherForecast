@@ -1,8 +1,8 @@
-import { GET_WEATHER, ERROR_INPUT, DEL_WIDGET, DEL_ERROR } from './actions';
+import { GET_CITY, DEL_CITY } from '../actions';
 
 export const reducer = (state = [], action) => {
   switch (action.type) {
-    case GET_WEATHER:
+    case GET_CITY:
       if (action.data.firstCard) {
         const stateWithoutPreviousLocalPosition = state.filter(
           obj => !obj.firstCard
@@ -12,20 +12,9 @@ export const reducer = (state = [], action) => {
         return state;
       }
       return [...state, action.data];
-    case DEL_WIDGET:
+    case DEL_CITY:
       const stateWithoutDelWidget = state.filter(obj => obj.id !== action.id);
       return stateWithoutDelWidget;
-    default:
-      return state;
-  }
-};
-
-export const reducerError = (state = {}, action) => {
-  switch (action.type) {
-    case ERROR_INPUT:
-      return action.data;
-    case DEL_ERROR:
-      return {};
     default:
       return state;
   }

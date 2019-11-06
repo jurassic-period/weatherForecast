@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getWeather } from "../redux/actions";
-import Input from "../components/ Input";
+import { getCity } from "../actions/action-get-del-weather";
+import InputForHeader from "../components/ input-for-header";
 
 class HeaderInput extends Component {
   state = {
@@ -17,7 +17,7 @@ class HeaderInput extends Component {
     });
   };
 
-  newCity = e => {
+  addText = e => {
     e.preventDefault();
     const { inputValue } = this.state;
     if (inputValue.trim().length) {
@@ -34,9 +34,9 @@ class HeaderInput extends Component {
   render() {
     const { inputValue } = this.state;
     return (
-      <Input
+      <InputForHeader
         inputValue={inputValue}
-        newCity={this.newCity}
+        addText={this.addText}
         saveValue={this.saveValue}
       />
     );
@@ -45,7 +45,7 @@ class HeaderInput extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    sendCity: name => dispatch(getWeather(name))
+    sendCity: name => dispatch(getCity(name))
   };
 };
 

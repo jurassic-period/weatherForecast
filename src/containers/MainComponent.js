@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import HeaderInput from "./HeaderInput";
 import WeatherInfo from "./WeatherInfo";
 import { connect } from "react-redux";
-import { getLocalWeather } from "../redux/actions";
+import { getCity } from "../actions";
 import Error from "./Error";
 
 class MainComponent extends Component {
@@ -33,7 +33,7 @@ class MainComponent extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    weatherInfo: (lat, lon) => dispatch(getLocalWeather(lat, lon))
+    weatherInfo: (lat, lon) => dispatch(getCity(lat, lon))
   };
 };
 
