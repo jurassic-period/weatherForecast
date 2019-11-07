@@ -1,8 +1,8 @@
-import { GET_CITY, DEL_CITY } from '../actions';
+import { FETCH_CITY_SUCCESS, DEL_CITY } from '../actions';
 
 export const reducer = (state = [], action) => {
   switch (action.type) {
-    case GET_CITY:
+    case FETCH_CITY_SUCCESS:
       if (action.data.firstCard) {
         const stateWithoutPreviousLocalPosition = state.filter(
           obj => !obj.firstCard

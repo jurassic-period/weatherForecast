@@ -1,7 +1,8 @@
 const API_KEY = "457f40520ab80a953c8f425fc21de253";
 const API_BASE = "https://api.openweathermap.org/data/2.5/";
-export const GET_CITY = "GET_CITY";
-export const ERROR_INPUT = "ERROR_INPUT";
+export const FETCH_CITY_REQUEST = "FETCH_CITY_REQUEST";
+export const FETCH_CITY_SUCCESS = "FETCH_CITY_SUCCESS";
+export const FETCH_CITY_FAILURE = "FETCH_CITY_FAILURE";
 export const DEL_CITY = "DEL_CITY";
 
 const fetchWeather = (arg1, arg2) => {
@@ -14,17 +15,21 @@ const fetchWeather = (arg1, arg2) => {
 
 export function getCity(latitude, longitude = false) {
   return async dispatch => {
+    dispatch({ type: FETCH_CITY_REQUEST });
     const api_url = await fetch(fetchWeather(latitude, longitude));
     const data = await api_url.json();
+    if (longitude) {
+      data.firstCard = true;
+    }
     if (data.cod === 200) {
-      dispatch({ type: GET_CITY, data });
+      dispatch({ type: FETCH_CITY_SUCCESS, data });
     } else {
-      dispatch({ type: ERROR_INPUT, data });
+      dispatch({ type: FETCH_CITY_FAILURE, data });
     }
   };
 }
 
-export function deliteCity(id) {
+export function deleteCity(id) {
   return async dispatch => {
     dispatch({ type: DEL_CITY, id });
   };

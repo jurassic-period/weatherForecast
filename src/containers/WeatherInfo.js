@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { deliteCity } from "../actions";
+import { deleteCity } from "../actions";
 import Card from "../components/card";
 
 class WeatherInfo extends Component {
@@ -28,7 +28,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    delCity: id => dispatch(deliteCity(id))
+    delCity: id => dispatch(deleteCity(id))
   };
 };
 

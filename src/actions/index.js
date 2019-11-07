@@ -1,18 +1,18 @@
 import {
-  deliteCity,
+  deleteCity,
   DEL_CITY,
   getCity,
-  GET_CITY,
-  ERROR_INPUT
+  FETCH_CITY_SUCCESS,
+  FETCH_CITY_FAILURE
 } from "./action-get-del-weather";
-import { closeError, DEL_ERROR } from "./action-close-error";
+import { closeError, DEL_CITY_ERROR } from "./action-close-error";
 
 export {
   getCity,
-  deliteCity,
+  deleteCity,
   closeError,
-  GET_CITY,
-  ERROR_INPUT,
+  FETCH_CITY_SUCCESS,
+  FETCH_CITY_FAILURE,
   DEL_CITY,
-  DEL_ERROR
+  DEL_CITY_ERROR
 };
