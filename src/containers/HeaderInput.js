@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getCity } from "../actions/action-get-del-weather";
 import InputForHeader from "../components/ input-for-header";
+const paramsType = 'city';
 
 class HeaderInput extends Component {
   state = {
@@ -21,8 +22,8 @@ class HeaderInput extends Component {
     e.preventDefault();
     const { inputValue } = this.state;
     if (inputValue.trim().length) {
-      const { sendCity } = this.props;
-      sendCity(inputValue);
+      const { getCity } = this.props;
+      getCity(inputValue, paramsType);
     }
     this.setState(() => {
       return {
@@ -31,8 +32,21 @@ class HeaderInput extends Component {
     });
   };
 
+  // ________________________________________________________________
+
+  // Временно для отрисовки нужно количества виджетов по умолчанию
+
+buildBigCityStructure = () => {
+  const { getCity } = this.props;
+  const arr = ['kiev', 'moscow', 'lviv', 'asa', 'berlin', 'odesa', 'paris', 'palo alto', 'yalta', 'helsinki', 'tokio', 'minsk'];
+  arr.map(city => getCity(city, 'city'));
+};
+
+// ________________________________________________________________
+
   render() {
     const { inputValue } = this.state;
+    this.buildBigCityStructure(); // временно потом удалить
     return (
       <InputForHeader
         inputValue={inputValue}
@@ -45,7 +59,7 @@ class HeaderInput extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    sendCity: name => dispatch(getCity(name))
+    getCity: name => dispatch(getCity(name))
   };
 };
 

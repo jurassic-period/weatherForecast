@@ -5,20 +5,22 @@ export const FETCH_CITY_SUCCESS = "FETCH_CITY_SUCCESS";
 export const FETCH_CITY_FAILURE = "FETCH_CITY_FAILURE";
 export const DEL_CITY = "DEL_CITY";
 
-const fetchWeather = (arg1, arg2) => {
-  if(arg1 && arg2) {
-    return `${API_BASE}weather?lat=${arg1}&lon=${arg2}&appid=${API_KEY}&units=metric`;
+const makeUrl = (params, type) => {
+  if(type === 'coords') {
+    const { latitude, longitude  } = params;
+    return `${API_BASE}weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
   } else {
-    return `${API_BASE}weather?q=${arg1}&appid=${API_KEY}&units=metric`;
+    return `${API_BASE}weather?q=${params}&appid=${API_KEY}&units=metric`;
   }
 };
 
-export function getCity(latitude, longitude = false) {
+
+export function getCity(params, type) {
   return async dispatch => {
     dispatch({ type: FETCH_CITY_REQUEST });
-    const api_url = await fetch(fetchWeather(latitude, longitude));
+    const api_url = await fetch(makeUrl(params, type));
     const data = await api_url.json();
-    if (longitude) {
+    if (type === 'coords') {
       data.firstCard = true;
     }
     if (data.cod === 200) {

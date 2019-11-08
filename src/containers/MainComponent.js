@@ -4,6 +4,7 @@ import WeatherInfo from "./WeatherInfo";
 import { connect } from "react-redux";
 import { getCity } from "../actions";
 import Error from "./Error";
+const coords = 'coords';
 
 class MainComponent extends Component {
   componentDidMount() {
@@ -13,7 +14,7 @@ class MainComponent extends Component {
       const {
         coords: { latitude, longitude }
       } = position;
-      weatherInfo(latitude, longitude);
+      weatherInfo({latitude, longitude}, coords);
     });
   }
 

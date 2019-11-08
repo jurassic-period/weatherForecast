@@ -9,6 +9,7 @@ export const reducer = (state = [], action) => {
         );
         return [action.data, ...stateWithoutPreviousLocalPosition];
       } else if (state.some(obj => obj.name === action.data.name)) {
+        
         return state;
       }
       return [...state, action.data];
