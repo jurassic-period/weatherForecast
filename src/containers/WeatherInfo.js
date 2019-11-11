@@ -1,9 +1,20 @@
-import React, { Component } from "react";
+import React, { Component, createRef, forwardRef } from "react";
 import { connect } from "react-redux";
 import { deleteCity } from "../actions";
 import Card from "../components/card";
 
 class WeatherInfo extends Component {
+  // constructor(props) {
+  //   super(props)
+  //   this.ref = createRef();
+  // }
+  state = {
+    refs: LIST.reduce((acc, value) => {
+      acc[value.id] = React.createRef();
+      return acc;
+    }, {})
+  };
+
   render() {
     const { weatherData, delCity } = this.props;
     return (
@@ -14,6 +25,7 @@ class WeatherInfo extends Component {
               key={`${obj.name}_${obj.id}`}
               obj={obj}
               delCity={delCity}
+              ref={this.ref}
             />
           ))}
       </div>

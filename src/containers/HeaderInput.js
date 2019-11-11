@@ -34,7 +34,7 @@ class HeaderInput extends Component {
 
   // ________________________________________________________________
 
-  // Временно для отрисовки нужно количества виджетов по умолчанию
+  // Временно для отрисовки нужного количества виджетов по умолчанию
 
 buildBigCityStructure = () => {
   const { getCity } = this.props;
@@ -45,6 +45,7 @@ buildBigCityStructure = () => {
 // ________________________________________________________________
 
   render() {
+    console.log('refs', this.myRef);
     const { inputValue } = this.state;
     // this.buildBigCityStructure(); // временно потом удалить
     return (
