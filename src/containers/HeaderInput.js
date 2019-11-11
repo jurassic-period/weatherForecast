@@ -46,7 +46,7 @@ buildBigCityStructure = () => {
 
   render() {
     const { inputValue } = this.state;
-    this.buildBigCityStructure(); // временно потом удалить
+    // this.buildBigCityStructure(); // временно потом удалить
     return (
       <InputForHeader
         inputValue={inputValue}

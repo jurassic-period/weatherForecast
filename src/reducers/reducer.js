@@ -9,7 +9,10 @@ export const reducer = (state = [], action) => {
         );
         return [action.data, ...stateWithoutPreviousLocalPosition];
       } else if (state.some(obj => obj.name === action.data.name)) {
-        
+        const actionDataWithIndicator = action.data.repeat = true;
+        const newState = state.map(obj => obj.name === action.data.name? actionDataWithIndicator : obj);
+
+        console.log('VOT ONO', newState)
         return state;
       }
       return [...state, action.data];
