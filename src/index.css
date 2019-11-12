@@ -97,7 +97,13 @@ h1 {
   cursor: pointer;
   transition: all 0.1s ease-out;
 }
-
+.red {
+  background-color: #d2c2eb;
+  -webkit-transition: background-color 2s ease-out;
+  -moz-transition: background-color 2s ease-out;
+  -o-transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
+}
 /* Message of mistake*/
 .error-info {
   border: 1px solid #d0cccc;

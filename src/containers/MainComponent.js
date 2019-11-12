@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import HeaderInput from "./HeaderInput";
 import WeatherInfo from "./WeatherInfo";
 import { connect } from "react-redux";
@@ -8,16 +8,21 @@ const coords = "coords";
 
 class MainComponent extends Component {
   state = {
-    focus: false
+    refs: this.props.weatherData.reduce((acc, value) => {
+      acc[value.id] = createRef();
+      return acc;
+    }, {})
   };
 
-changeFocus = () => {
-  this.setState(({focus}) => {
-    return {
-      focus: !focus
-    };
-  }); 
-};
+  handleClick = id => {
+    const element = this.state.refs[id].current;
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+    element.classList.add('red');
+    setTimeout(() => element.classList.remove('red'), 1800);
+  };
 
   componentDidMount() {
     const { weatherInfo } = this.props;
@@ -31,20 +36,24 @@ changeFocus = () => {
   }
 
   render() {
-    const { focus } = this.state;
+    const { refs } = this.state;
     return (
       <div>
         <h1>Best Weather Forecast</h1>
-        <HeaderInput />
+        <HeaderInput handleClick={this.handleClick} />
         <Error />
         <div className="container">
-          <WeatherInfo focus={focus}/>
+          <WeatherInfo refs={refs} />
         </div>
       </div>
     );
   }
 }
-
+const mapStateToProps = state => {
+  return {
+    weatherData: state.weatherData
+  };
+};
 const mapDispatchToProps = dispatch => {
   return {
     weatherInfo: (lat, lon) => dispatch(getCity(lat, lon))
@@ -52,6 +61,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(MainComponent);

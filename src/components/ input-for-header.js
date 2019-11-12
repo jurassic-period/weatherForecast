@@ -8,7 +8,7 @@ export default function InputForHeader({ inputValue, addText, saveValue }) {
           className="input-city"
           type="text"
           value={inputValue}
-          placeholder="Your city name" 
+          placeholder="Your city name"
           onChange={saveValue}
         />
         <button className="button-city">To get weather</button>

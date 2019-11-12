@@ -1,28 +1,11 @@
-import React, { Component, createRef, forwardRef } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { deleteCity } from "../actions";
 import Card from "../components/card";
 
 class WeatherInfo extends Component {
-  state = {
-    refs: this.props.weatherData.reduce((acc, value) => {
-      acc[value.id] = React.createRef();
-      return acc;
-    }, {})
-  };
-
-  handleClick = (id) => {
-  	this.state.refs[id].current.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-  }
-
   render() {
-    const { weatherData, delCity, focus } = this.props;
-    const { refs } = this.state;
-    console.log('refs :', refs)
-    if(focus){ this.handleClick};
+    const { weatherData, delCity, refs } = this.props;
     return (
       <div className="weather-card row d-flex">
         {weatherData.length &&

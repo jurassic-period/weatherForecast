@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getCity } from "../actions/action-get-del-weather";
 import InputForHeader from "../components/ input-for-header";
-const paramsType = 'city';
+const paramsType = "city";
 
 class HeaderInput extends Component {
   state = {
@@ -22,8 +22,17 @@ class HeaderInput extends Component {
     e.preventDefault();
     const { inputValue } = this.state;
     if (inputValue.trim().length) {
-      const { getCity } = this.props;
-      getCity(inputValue, paramsType);
+      const { weatherData, getCity } = this.props;
+      const coincedence = weatherData.find(el => {
+        return el.name.toLowerCase() === inputValue.toLowerCase();
+      });
+      if (coincedence) {
+        const coincedenceId = coincedence.id;
+        const { handleClick } = this.props;
+        handleClick(coincedenceId);
+      } else {
+        getCity(inputValue, paramsType);
+      }
     }
     this.setState(() => {
       return {
@@ -36,18 +45,30 @@ class HeaderInput extends Component {
 
   // Временно для отрисовки нужного количества виджетов по умолчанию
 
-buildBigCityStructure = () => {
-  const { getCity } = this.props;
-  const arr = ['kiev', 'moscow', 'lviv', 'asa', 'berlin', 'odesa', 'paris', 'palo alto', 'yalta', 'helsinki', 'tokio', 'minsk'];
-  arr.map(city => getCity(city, 'city'));
-};
+  buildBigCityStructure = () => {
+    const { getCity } = this.props;
+    const arr = [
+      "kiev",
+      "moscow",
+      "lviv",
+      "asa",
+      "berlin",
+      "odesa",
+      "paris",
+      "palo alto",
+      "yalta",
+      "helsinki",
+      "tokio",
+      "minsk"
+    ];
+    arr.map(city => getCity(city, "city"));
+  };
 
-// ________________________________________________________________
+  // ________________________________________________________________
 
   render() {
-    console.log('refs', this.myRef);
     const { inputValue } = this.state;
-    // this.buildBigCityStructure(); // временно потом удалить
+    // this.buildBigCityStructure(); // временно, потом удалить
     return (
       <InputForHeader
         inputValue={inputValue}
