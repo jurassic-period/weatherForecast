@@ -57,7 +57,11 @@ buildBigCityStructure = () => {
     );
   }
 }
-
+const mapStateToProps = state => {
+  return {
+    weatherData: state.weatherData
+  };
+};
 const mapDispatchToProps = dispatch => {
   return {
     getCity: name => dispatch(getCity(name))
@@ -65,6 +69,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(HeaderInput);

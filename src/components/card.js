@@ -5,7 +5,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 
-export default function Card({ obj, delCity }) {
+export default function Card({ obj, delCity, refs }) {
   const {
     name,
     id,
@@ -15,7 +15,7 @@ export default function Card({ obj, delCity }) {
     wind: { speed }
   } = obj;
   return (
-    <div className="weather-elem col-md-4 col-sm-6">
+    <div className="weather-elem col-md-4 col-sm-6" ref={refs[obj.id]}>
       <h2 className="title-widget">
         {name}, {country}
       </h2>

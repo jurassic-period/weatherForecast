@@ -4,9 +4,21 @@ import WeatherInfo from "./WeatherInfo";
 import { connect } from "react-redux";
 import { getCity } from "../actions";
 import Error from "./Error";
-const coords = 'coords';
+const coords = "coords";
 
 class MainComponent extends Component {
+  state = {
+    focus: false
+  };
+
+changeFocus = () => {
+  this.setState(({focus}) => {
+    return {
+      focus: !focus
+    };
+  }); 
+};
+
   componentDidMount() {
     const { weatherInfo } = this.props;
     //To get user coordinates
@@ -14,18 +26,19 @@ class MainComponent extends Component {
       const {
         coords: { latitude, longitude }
       } = position;
-      weatherInfo({latitude, longitude}, coords);
+      weatherInfo({ latitude, longitude }, coords);
     });
   }
 
   render() {
+    const { focus } = this.state;
     return (
       <div>
         <h1>Best Weather Forecast</h1>
         <HeaderInput />
         <Error />
         <div className="container">
-          <WeatherInfo />
+          <WeatherInfo focus={focus}/>
         </div>
       </div>
     );
