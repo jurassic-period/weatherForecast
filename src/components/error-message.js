@@ -12,7 +12,7 @@ export default function ErrorMessage({ weatherError, errorDel }) {
           <button
             ref={button => button && button.focus()}
             className="btn-cancel"
-            onClick={() => errorDel()}
+            onClick={errorDel}
           >
             CLOSE
           </button>

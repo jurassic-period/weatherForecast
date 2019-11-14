@@ -18,7 +18,7 @@ class HeaderInput extends Component {
     });
   };
 
-  addText = e => {
+  handleCity = e => {
     e.preventDefault();
     const { inputValue } = this.state;
     if (inputValue.trim().length) {
@@ -72,7 +72,7 @@ class HeaderInput extends Component {
     return (
       <InputForHeader
         inputValue={inputValue}
-        addText={this.addText}
+        handleCity={this.handleCity}
         saveValue={this.saveValue}
       />
     );
