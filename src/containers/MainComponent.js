@@ -15,7 +15,8 @@ class MainComponent extends Component {
   };
 
   handleClick = id => {
-    const element = this.state.refs[id].current;
+    const { refs } = this.state;
+    const element = refs[id].current;
     element.scrollIntoView({
       behavior: "smooth",
       block: "start"
