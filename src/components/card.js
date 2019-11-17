@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { format } from "date-fns"; // from https://date-fns.org
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -6,11 +6,6 @@ import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 
 export default function Card({ obj, delCity, refs }) {
-  const [count, setCount ] = useState(0);
-  useEffect(() => {
-    // Обновляем заголовок документа, используя API браузера
-    document.title = `Вы нажали ${count} раз`;
-  });
   const {
     name,
     id,
@@ -20,8 +15,7 @@ export default function Card({ obj, delCity, refs }) {
     wind: { speed }
   } = obj;
   return (
-    <div className="weather-elem col-md-4 col-sm-6" ref={refs[obj.id]} onClick={() => setCount(count + 100)}>
-      <p>ВЫ нажали count {count} times</p>
+    <div className="weather-elem col-md-4 col-sm-6" ref={refs[obj.id]}>
       <h2 className="title-widget">
         {name}, {country}
       </h2>
