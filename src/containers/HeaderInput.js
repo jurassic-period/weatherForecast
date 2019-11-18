@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { getCity } from "../actions/action-get-del-weather";
-import InputForHeader from "../components/ input-for-header";
+import InputForHeader from "../components/header-input";
 const paramsType = "city";
 
 function HeaderInput({ weatherData, getCity, handleClick }) {

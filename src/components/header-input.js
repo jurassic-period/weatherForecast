@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function InputForHeader({ inputValue, handleCity, saveValue }) {
+export default function HeaderInput({ inputValue, handleCity, saveValue }) {
   return (
     <form onSubmit={e => handleCity(e)}>
       <div className="d-flex flex-column col form-wrapper">

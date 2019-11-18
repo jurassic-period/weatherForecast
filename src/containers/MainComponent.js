@@ -1,6 +1,7 @@
 import React, { createRef, useState, useEffect } from "react";
 import HeaderInput from "./HeaderInput";
 import WeatherInfo from "./WeatherInfo";
+import WeatherContainer from '../components/weather-container';
 import { connect } from "react-redux";
 import { getCity } from "../actions";
 import Error from "./Error";
@@ -44,9 +45,9 @@ function MainComponent({ weatherInfo, weatherData }) {
       <h1>Best Weather Forecast</h1>
       <HeaderInput handleClick={handleClick} />
       <Error />
-      <div className="container">
+      <WeatherContainer >
         <WeatherInfo refs={refs} />
-      </div>
+      </WeatherContainer>
     </div>
   );
 }

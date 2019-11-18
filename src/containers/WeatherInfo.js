@@ -3,9 +3,12 @@ import { connect } from "react-redux";
 import { deleteCity } from "../actions";
 import Card from "../components/card";
 
-function WeatherInfo({ weatherData, delCity, refs }) {
+
+function WeatherInfo(props) {
+  console.log(props.children);
+  const { weatherData, delCity, refs } = props;
   return (
-    <div className="weather-card row d-flex">
+     <div><div className="weather-card row d-flex">
       {weatherData.length &&
         weatherData.map(obj => (
           <Card
@@ -15,7 +18,7 @@ function WeatherInfo({ weatherData, delCity, refs }) {
             refs={refs}
           />
         ))}
-    </div>
+    </div></div>
   );
 };
 
