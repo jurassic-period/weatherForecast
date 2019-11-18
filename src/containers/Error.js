@@ -1,13 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { closeError } from "../actions";
 import ErrorMessage from "../components/error-message";
 
-class Error extends Component {
-  render() {
-    const { weatherError, errorDel } = this.props;
-    return <ErrorMessage weatherError={weatherError} errorDel={errorDel} />;
-  }
+function Error({ weatherError, errorDel }) {
+  return <ErrorMessage weatherError={weatherError} errorDel={errorDel} />;
 }
 
 const mapStateToProps = state => {
