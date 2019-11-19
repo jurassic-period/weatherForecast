@@ -38,6 +38,7 @@ function MainComponent({ weatherInfo, weatherData }) {
 
   useEffect(() => {
     getCoords();
+    console.log('check : 123456789')
   });
 
   return (

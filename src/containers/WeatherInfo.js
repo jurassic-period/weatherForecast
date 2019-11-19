@@ -3,13 +3,11 @@ import { connect } from "react-redux";
 import { deleteCity } from "../actions";
 import Card from "../components/card";
 
-
 function WeatherInfo(props) {
-  console.log(props.children);
   const { weatherData, delCity, refs } = props;
   return (
-     <div><div className="weather-card row d-flex">
-      {weatherData.length &&
+    <div className="weather-card row d-flex">
+      {weatherData.length ? (
         weatherData.map(obj => (
           <Card
             key={`${obj.name}_${obj.id}`}
@@ -17,10 +15,13 @@ function WeatherInfo(props) {
             delCity={delCity}
             refs={refs}
           />
-        ))}
-    </div></div>
+        ))
+      ) : (
+        <div>Sorry we didn't get your current location</div>
+      )}
+    </div>
   );
-};
+}
 
 const mapStateToProps = state => {
   return {
@@ -33,10 +34,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(WeatherInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherInfo);
 
 // Old code
 // class WeatherInfo extends Component {
