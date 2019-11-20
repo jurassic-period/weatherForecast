@@ -1,7 +1,7 @@
 import React, { createRef, useState, useEffect } from "react";
 import HeaderInput from "./HeaderInput";
 import WeatherInfo from "./WeatherInfo";
-import WeatherContainer from '../components/weather-container';
+import WeatherContainer from "../components/weather-container";
 import { connect } from "react-redux";
 import { getCity } from "../actions";
 import Error from "./Error";
@@ -16,6 +16,7 @@ function MainComponent({ weatherInfo, weatherData }) {
   };
 
   const [refs] = useState(createRefs());
+  const [lat, setLat] = useState(0);
 
   const handleClick = id => {
     const element = refs[id].current;
@@ -28,25 +29,25 @@ function MainComponent({ weatherInfo, weatherData }) {
   };
 
   const getCoords = () => {
-    navigator.geolocation.getCurrentPosition(position => {
+    navigator.geolocation.getCurrentPosition(function(position) {
       const {
         coords: { latitude, longitude }
       } = position;
+      setLat(latitude);
       weatherInfo({ latitude, longitude }, coords);
     });
   };
 
   useEffect(() => {
     getCoords();
-    console.log('check : 123456789')
-  });
+  }, [lat]);
 
   return (
     <div>
       <h1>Best Weather Forecast</h1>
       <HeaderInput handleClick={handleClick} />
       <Error />
-      <WeatherContainer >
+      <WeatherContainer>
         <WeatherInfo refs={refs} />
       </WeatherContainer>
     </div>
